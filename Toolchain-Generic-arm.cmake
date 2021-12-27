@@ -1,0 +1,32 @@
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR arm)
+
+if (CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
+    message("CMAKE_HOST_SYSTEM_NAME: linux")
+	set(TOOLCHAIN_REL_PATH "ToolChain/linux")
+elseif (CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
+    message("CMAKE_HOST_SYSTEM_NAME: win")
+	set(TOOLCHAIN_REL_PATH "ToolChain/win")
+ellseif (CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
+    message("CMAKE_HOST_SYSTEM_NAME: macos")
+	set(TOOLCHAIN_REL_PATH "ToolChain/macos")
+else()
+    message(FATAL_ERROR " CMAKE_HOST_SYSTEM_NAME ERROR!")
+endif()
+
+set(TOOLCHAIN_DIR ${CMAKE_SOURCE_DIR}/${TOOLCHAIN_REL_PATH})
+set(CMAKE_C_COMPILER ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-g++)
+set(CMAKE_C_FLAGS "-specs=nosys.specs -specs=nano.specs")
+set(CXX_FLAGS "-std=c++11 -specs=nosys.specs -specs=nano.specs")
+set(CMAKE_CXX_FLAGS ${CXX_FLAGS})
+set(CMAKE_EXE_LINKER_FLAGS "--specs=nosys.specs --specs=nano.specs" CACHE INTERNAL "")
+
+set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/lib 
+                         ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include)
+message("CMAKE_FIND_ROOT_PATH : ${CMAKE_FIND_ROOT_PATH}")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+SET(BUILD_STATIC_LIBS ON)
