@@ -26,9 +26,9 @@ public:
     virtual uint32_t GetChannelMTU();
 
 private:
-    static void onChannelConnEvent(bool bChannelConn);
+    static void onChannelConnEvent(int bChannelConn);
 
-    static void onChannelLinkStateChange(bool bLinkState);
+    static void onChannelLinkStateChange(int bLinkState);
 
     static uint32_t onDataRecv(uint8_t *data, uint32_t len);
 

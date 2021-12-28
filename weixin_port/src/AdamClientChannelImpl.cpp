@@ -46,7 +46,7 @@ uint32_t AdamClientChannelImpl::GetChannelMTU()
     return ChannelMtuGet();
 }
 
-void AdamClientChannelImpl::onChannelConnEvent(bool bChannelConn)
+void AdamClientChannelImpl::onChannelConnEvent(int bChannelConn)
 {
     if (pAdamClientChannelCb && !bChannelConn)
 	{
@@ -54,11 +54,11 @@ void AdamClientChannelImpl::onChannelConnEvent(bool bChannelConn)
 	}
 }
 
-void AdamClientChannelImpl::onChannelLinkStateChange(bool bLinkState)
+void AdamClientChannelImpl::onChannelLinkStateChange(int bLinkState)
 {
     if (pAdamClientChannelCb)
 	{
-	    pAdamClientChannelCb->OnPhysicalLinkStateChangedEvent(bLinkState);
+	    pAdamClientChannelCb->OnPhysicalLinkStateChangedEvent((bool)bLinkState);
 	}
 }
 
