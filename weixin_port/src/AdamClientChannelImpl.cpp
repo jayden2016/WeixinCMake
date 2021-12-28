@@ -1,4 +1,5 @@
 #include "AdamClientChannelImpl.h"
+#include "adam_channel_common_define.h"
 #include "weixin_channel.h"
 
 namespace adam {
@@ -63,16 +64,16 @@ void AdamClientChannelImpl::onChannelLinkStateChange(bool bLinkState)
 
 uint32_t AdamClientChannelImpl::onDataRecv(uint8_t *data, uint32_t len)
 {
-    if (pAdamClientChannelCb)
+    if (pAdamClientChannelCb && (data != nullptr) && (len != 0))
     {
         std::string str((char*)data, len);
 
 		pAdamClientChannelCb->OnReceiveDataEvent((const std::string&)str);
-		return len;
+		return 0;
     }
 	else
 	{
-	    return 0;
+	    return kAdamChannelNoLink;
 	}
 }
 
