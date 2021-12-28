@@ -4,7 +4,7 @@
 
 namespace adam {
 
-AdamClientChannelCallback AdamClientChannelImpl::*pAdamClientChannelCb = nullptr;
+AdamClientChannelCallback* AdamClientChannelImpl::pAdamClientChannelCb = nullptr;
 
 void AdamClientChannelImpl::SetCallback(AdamClientChannelCallback* callback)
 {
