@@ -6,5 +6,6 @@ project(weixin_test)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/build/lib CACHE INTERNAL "")
 link_directories(${LIBRARY_OUTPUT_PATH}/lib)
 
+set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/build/libWeixinChannel CACHE INTERNAL "")
 add_subdirectory(weixin_port)
 include_directories(${CMAKE_SOURCE_DIR}/weixin_port/include)
