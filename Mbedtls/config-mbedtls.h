@@ -1,0 +1,69 @@
+#ifndef MBEDTLS_CONFIG_K62_K63_U59_H
+#define MBEDTLS_CONFIG_K62_K63_U59_H
+
+#define MBEDTLS_K62_K63_U59
+#ifdef MBEDTLS_K62_K63_U59
+#include "FreeRTOS.h"
+#include "task.h"
+#include "portmacro.h"
+#include "portable.h"
+#endif /* MBEDTLS_K62_K63_U59 */
+
+/* System support */
+#define MBEDTLS_PLATFORM_C
+#define MBEDTLS_HAVE_ASM
+#define MBEDTLS_PLATFORM_MEMORY
+#define MBEDTLS_PLATFORM_CALLOC_MACRO pvPortCalloc
+#define MBEDTLS_PLATFORM_FREE_MACRO vPortFree
+
+// Enable AES
+#define MBEDTLS_AES_C
+//#define MBEDTLS_AES_ROM_TABLES
+#define MBEDTLS_CIPHER_MODE_CBC
+
+// Enable RSA
+#define MBEDTLS_PK_C
+#define MBEDTLS_RSA_C
+#define MBEDTLS_BIGNUM_C
+#define MBEDTLS_OID_C
+#define MBEDTLS_PKCS1_V15
+#define MBEDTLS_MD_C
+#define MBEDTLS_ENTROPY_C
+#define MBEDTLS_SHA1_C
+#define MBEDTLS_SHA256_C
+#define MBEDTLS_PK_PARSE_C
+#define MBEDTLS_ASN1_PARSE_C
+#define MBEDTLS_PEM_PARSE_C
+#define MBEDTLS_BASE64_C
+#define MBEDTLS_CTR_DRBG_C
+#define MBEDTLS_NO_PLATFORM_ENTROPY
+#define MBEDTLS_ENTROPY_HARDWARE_ALT
+
+// Enable MD5
+#define MBEDTLS_MD5_C
+
+#define MBEDTLS_GCM_C
+
+#define MBEDTLS_ECP_C
+
+#define MBEDTLS_ECP_DP_SECP256R1_ENABLED
+
+#define MBEDTLS_ECP_DP_SECP192R1_ENABLED
+
+#define MBEDTLS_AES_ROM_TABLES
+
+#define MBEDTLS_BIGNUM_C
+
+#define MBEDTLS_ECDH_C
+
+#define MBEDTLS_ECDSA_C
+
+#define MBEDTLS_ASN1_PARSE_C
+
+#define MBEDTLS_ASN1_WRITE_C
+
+#define MBEDTLS_CIPHER_C
+
+#include "mbedtls/check_config.h"
+
+#endif /* MBEDTLS_CONFIG_K62_K63_U59_H */

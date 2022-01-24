@@ -23,8 +23,9 @@ extern "C" {
 #endif
 
 #include <unistd.h>
+#include "FreeRTOS_POSIX/pthread.h"
 
-#if defined(_POSIX_THREADS)
+#if !defined(_POSIX_THREADS)
 
 #include <sys/types.h>
 #include <time.h>
