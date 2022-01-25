@@ -23,6 +23,7 @@ set(CMAKE_C_FLAGS "${MCU_FLAGS} ${C_CXX_FLAGS}")
 set(CXX_FLAGS "${MCU_FLAGS} -std=c++11 ${C_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS ${CXX_FLAGS})
 set(CMAKE_EXE_LINKER_FLAGS "--specs=nosys.specs --specs=nano.specs" CACHE INTERNAL "")
+add_definitions(-D_POSIX_THREADS -D_POSIX_TIMERS -D_POSIX_MONOTONIC_CLOCK -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -specs=nosys.specs -specs=nano.specs -Wall -fdata-sections -ffunction-sections -fmerge-constants -floop-optimize)
 
 set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/lib 
                          ${TOOLCHAIN_DIR}/gcc-arm-none-eabi-9-2019-q4-major/arm-none-eabi/include)
