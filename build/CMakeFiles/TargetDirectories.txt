@@ -1,0 +1,2 @@
+/mnt/e/watch/WeixinCMake_Project/WeixinCMake/build/wechat_service/CMakeFiles/wechat_service.dir
+/mnt/e/watch/WeixinCMake_Project/WeixinCMake/build/weixin_port/CMakeFiles/WeixinChannel.dir
