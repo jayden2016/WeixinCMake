@@ -64,10 +64,16 @@
 #endif
 
 #if posixconfigENABLE_PTHREAD_ATTR_T == 1
-    typedef struct pthread_attr
+    /**
+     * @brief Thread attribute object.
+     */
+    typedef struct pthread_attr_internal
     {
-        uint32_t ulpthreadAttrStorage;
-    } PthreadAttrType_t;
+        void *stackaddr;
+        uint16_t usStackSize;                /**< Stack size. */
+        uint16_t usSchedPriorityDetachState; /**< Schedule priority 15 bits (LSB) Detach state: 1 bits (MSB) */
+    } pthread_attr_internal_t;
+    typedef pthread_attr_internal_t PthreadAttrType_t;
 #else
     typedef void                       * PthreadAttrType_t;
 #endif

@@ -197,6 +197,9 @@ int pthread_attr_setschedpolicy( pthread_attr_t * attr,
 int pthread_attr_setstacksize( pthread_attr_t * attr,
                                size_t stacksize );
 
+int	pthread_attr_setstack (pthread_attr_t *attr,
+	                              void *__stackaddr, size_t __stacksize);
+
 /**
  * @brief Destroy a barrier object.
  *

@@ -529,6 +529,7 @@ static void *pthread_test_wakeup(void *arg) {
 }
 
 bool Test_thread_impl() {
+	static uint8_t stack_buf[PTHREAD_STACK_MIN] = {0};
     adam_test_log log_var(__func__);
     uint64_t starttime = __gettickcount();
     var1 = new ThreadTestVal();
@@ -551,7 +552,8 @@ bool Test_thread_impl() {
     starttime = __gettickcount();
     pthread_attr_t thread_attr;
     pthread_attr_init(&thread_attr);
-    int ret = pthread_attr_setstacksize(&thread_attr, PTHREAD_STACK_MIN);
+    int ret = pthread_attr_setstack(&thread_attr, stack_buf, PTHREAD_STACK_MIN);
+	ret |= pthread_attr_setschedpolicy(&thread_attr, 7);
     if (ret != 0) {
         log_var.set_failed();
         adam_printf("[----------] pthread_attr_setstacksize failed ret:%d.\r\n", ret);

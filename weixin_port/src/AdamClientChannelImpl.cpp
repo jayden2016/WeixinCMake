@@ -77,6 +77,7 @@ uint32_t AdamClientChannelImpl::onDataRecv(uint8_t *data, uint32_t len)
 	}
 }
 
+ADAM_API {
 AdamClientChannel* CreateAdamClientChannel(const std::string& service_name)
 {
     return new AdamClientChannelImpl(service_name);
@@ -85,6 +86,7 @@ AdamClientChannel* CreateAdamClientChannel(const std::string& service_name)
 void DestroyAdamClientChannel(AdamClientChannel* adam_client_channel)
 {
     delete adam_client_channel;
+}
 }
 
 }
